@@ -4,7 +4,8 @@
       <md-button class="md-raised md-primary">Aprovar</md-button>
       <md-button class="md-raised md-accent">Recusar</md-button>
     </div>
-    <md-table md-card>
+    <div>
+    <md-table md-card class="md-alignment-center">
 
       <md-table-row>
         <md-table-head md-numeric>ID</md-table-head>
@@ -38,6 +39,7 @@
         <md-table-cell>Community Outreach Specialist</md-table-cell>
       </md-table-row>
     </md-table>
+  </div>
   </div>
 </template>
 

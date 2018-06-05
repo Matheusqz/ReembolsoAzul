@@ -1,9 +1,10 @@
 <template>
   <div>
     <div>
-      <md-table md-card>
+      <md-empty-state></md-empty-state>
+      <md-table class="md-alignment-top-center" md-card>
         <md-table-toolbar>
-          <h1 class="md-title">Users</h1>
+          <h1 class="md-title">Gastos por Categoria</h1>
         </md-table-toolbar>
 
       </md-table>
@@ -15,47 +16,64 @@
     <div>
       <md-table md-card>
         <md-table-toolbar>
-          <h1 class="md-title">Users</h1>
+          <h1 class="md-title">Gastos por usuários</h1>
         </md-table-toolbar>
 
-        <md-table-row>
-          <md-table-head md-numeric>ID</md-table-head>
-          <md-table-head>Name</md-table-head>
-          <md-table-head>Email</md-table-head>
-          <md-table-head>Gender</md-table-head>
-          <md-table-head>Job Title</md-table-head>
-        </md-table-row>
+        <app-reembolso v-for="reembolso in reembolsos" :key="reembolso.id" :reembolso="reembolso"></app-reembolso>
 
-        <md-table-row>
-          <md-table-cell md-numeric>1</md-table-cell>
-          <md-table-cell>Shawna Dubbin</md-table-cell>
-          <md-table-cell>sdubbin0@geocities.com</md-table-cell>
-          <md-table-cell>Male</md-table-cell>
-          <md-table-cell>Assistant Media Planner</md-table-cell>
-        </md-table-row>
-
-        <md-table-row>
-          <md-table-cell md-numeric>2</md-table-cell>
-          <md-table-cell>Odette Demageard</md-table-cell>
-          <md-table-cell>odemageard1@spotify.com</md-table-cell>
-          <md-table-cell>Female</md-table-cell>
-          <md-table-cell>Account Coordinator</md-table-cell>
-        </md-table-row>
-
-        <md-table-row>
-          <md-table-cell md-numeric>3</md-table-cell>
-          <md-table-cell>Vera Taleworth</md-table-cell>
-          <md-table-cell>vtaleworth2@google.ca</md-table-cell>
-          <md-table-cell>Male</md-table-cell>
-          <md-table-cell>Community Outreach Specialist</md-table-cell>
-        </md-table-row>
       </md-table>
     </div>
   </div>
 </template>
 
 <script>
+  import Reembolso from './Reembolso.vue';
   export default {
-    name: 'TableCard'
+    name: 'TableCard',
+    data() {
+      return {
+        reembolsos: [
+          {
+            id:1,
+            email: 'sdubbin0@geocities.com',
+            reembolso: 'Melão',
+            status: 'A',
+            Valor: '20',
+            categoria: 'Alimentação',
+            user: 'Shawna Dubbin'
+          },
+          {
+            id:2,
+            email: 'teste@gmail.com',
+            reembolso: 'Abobora',
+            status: 'A',
+            Valor: '20',
+            categoria: 'Alimentação',
+            user: 'Shawna Dubbin'
+          },
+          {
+            id:3,
+            email: 'cmarietonh@theatlantic.com',
+            reembolso: 'Banana',
+            status: 'A',
+            Valor: '20',
+            categoria: 'Alimentação',
+            user: 'Shawna Dubbin'
+          },
+          {
+            id:4,
+            email: 'sdubbin0@geocities.com',
+            reembolso: 'Goiaba',
+            status: 'A',
+            Valor: '20',
+            categoria: 'Alimentação',
+            user: 'Clarinda Marieton'
+          }
+        ]
+      }
+    },
+    components: {
+      appReembolso: Reembolso
+    }
   }
 </script>

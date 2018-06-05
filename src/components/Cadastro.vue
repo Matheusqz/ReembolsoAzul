@@ -1,6 +1,7 @@
 <template>
   <div>
-    <form novalidate class="md-layout" @submit.prevent="validateUser">
+    <md-empty-state></md-empty-state>
+    <form novalidate class="md-layout md-alignment-top-center" @submit.prevent="validateUser">
       <md-card class="md-layout-item md-size-50 md-small-size-100">
         <md-card-header>
           <div class="md-title">Users</div>
@@ -25,32 +26,30 @@
             <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
           </md-field>
 
-          <div class="md-layout md-gutter">
-            <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('name')">
-                <label for="name">First Name</label>
-                <md-input name="name" id="name" v-model="form.name" :disabled="sending" />
-                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>
-                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>
-              </md-field>
-            </div>
-            <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('name')">
-                <label for="name">First Name</label>
-                <md-input name="name" id="name" v-model="form.name" :disabled="sending" />
-                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>
-                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>
-              </md-field>
-            </div>
+
+          <div class="md-layout-item md-small-size-100">
+            <md-field :class="getValidationClass('password')">
+              <label for="password">Password</label>
+              <md-input name="password" id="password" v-model="form.password" :disabled="sending" />
+              <span class="md-error" v-if="!$v.form.password.required">The password is required</span>
+              <span class="md-error" v-else-if="!$v.form.password.minlength">Invalid password</span>
+            </md-field>
           </div>
+            <div class="md-layout-item md-small-size-100">
+              <md-field :class="getValidationClass('password')">
+                <label for="password">Password</label>
+                <md-input name="password" id="password" v-model="form.password" :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.password.required">The password is required</span>
+                <span class="md-error" v-else-if="!$v.form.password.minlength">Invalid password</span>
+              </md-field>
+            </div>
+
             <md-radio v-model="radio" value="accent">Criar nova empresa  <small>(Admin)</small></md-radio>
             <md-radio v-model="radio" value="Primary" class="md-primary">Inserir código existente </md-radio>
             <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('name')">
-                <label for="name">First Name</label>
-                <md-input name="name" id="name" v-model="form.name" :disabled="sending" />
-                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>
-                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>
+              <md-field >
+                <label for="empresa">Inserir nome da empresa</label>
+                <md-input name="empresa" id="empresa" v-model="form.empresa" :disabled="sending" />
               </md-field>
             </div>
           <div>
@@ -63,9 +62,10 @@
         <md-card-actions>
           <md-button type="submit"  class="md-dense md-raised md-primary" :disabled="sending">Cadastrar</md-button>
         </md-card-actions>
-      </md-card>
+
 
       <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar>
+      </md-card>
     </form>
   </div>
 </template>
@@ -89,6 +89,8 @@
         gender: null,
         age: null,
         email: null,
+        password: null,
+        empresa: null
       },
       radio: 'accent',
       userSaved: false,
@@ -115,6 +117,10 @@
         email: {
           required,
           email
+        },
+        password: {
+          required,
+          minLength: minLength(3)
         }
       }
     },
@@ -159,14 +165,14 @@
 </script>
 
 <style lang="scss" scoped>
-  .md-progress-bar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-  }
-  .md-radio {
-    display: flex;
-  }
+.md-progress-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.md-radio {
+  display: flex;
+}
 
 </style>

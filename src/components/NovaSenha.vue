@@ -4,18 +4,19 @@
     <form novalidate class="md-layout md-alignment-top-center " @submit.prevent="validateUser">
       <md-card class="md-layout-item md-size-50 md-small-size-100">
         <md-card-header>
-          <div class="md-title">Users</div>
+          <div class="md-title">Cadastre uma nova senha</div>
         </md-card-header>
 
         <md-card-content>
 
-          <md-field :class="getValidationClass('email')">
-            <label for="email">Email</label>
-            <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
-            <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
-            <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
-          </md-field>
-
+          <div class="md-layout-item md-small-size-100">
+            <md-field :class="getValidationClass('password')">
+              <label for="password">Password</label>
+              <md-input name="password" id="password" v-model="form.password" :disabled="sending" />
+              <span class="md-error" v-if="!$v.form.password.required">The password is required</span>
+              <span class="md-error" v-else-if="!$v.form.password.minlength">Invalid password</span>
+            </md-field>
+          </div>
           <div class="md-layout-item md-small-size-100">
             <md-field :class="getValidationClass('password')">
               <label for="password">Password</label>
@@ -29,12 +30,9 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button type="submit"  class="md-dense md-raised md-primary" :disabled="sending">Login</md-button>
+          <md-button type="submit"  class="md-dense md-raised md-primary" :disabled="sending">Confirmar nova senha</md-button>
         </md-card-actions>
-        <div>
-          <md-button to='./redefinirsenha'>ESQUECI MINHA SENHA</md-button>
-          <md-button to="./cadastro">QUERO ME CADASTRAR </md-button>
-        </div>
+
       </md-card>
 
       <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar>
@@ -52,7 +50,7 @@
   } from 'vuelidate/lib/validators'
 
   export default {
-    name: 'Login',
+    name: 'NovaSenha',
     mixins: [validationMixin],
     data: () => ({
       form: {
