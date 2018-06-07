@@ -2,9 +2,9 @@
   <div>
     <md-empty-state></md-empty-state>
     <form novalidate class="md-layout md-alignment-top-center " @submit.prevent="validateUser">
-      <md-card class="md-layout-item md-size-50 md-small-size-100">
-        <md-card-header>
-          <div class="md-title">Users</div>
+      <md-card class="md-layout-item md-size-35 md-small-size-100">
+        <md-card-header class="md-layout md-alignment-center">
+          <div class="md-title">Reembolso ContaAzul</div>
         </md-card-header>
 
         <md-card-content>
@@ -31,8 +31,8 @@
         <md-card-actions>
           <md-button type="submit"  class="md-dense md-raised md-primary" :disabled="sending">Login</md-button>
         </md-card-actions>
-        <div>
-          <md-button to='./redefinirsenha'>ESQUECI MINHA SENHA</md-button>
+        <div class="md-layout md-alignment-center">
+          <md-button to="./redefinirsenha">ESQUECI MINHA SENHA</md-button>
           <md-button to="./cadastro">QUERO ME CADASTRAR </md-button>
         </div>
       </md-card>
@@ -118,4 +118,26 @@
     right: 0;
     left: 0;
   }
+
+//Global
+.md-card-header {
+	background: #2687e9;
+	color: #fff;
+}
+
+.md-button.md-dense {
+	width: 100%;
+}
+
+.md-card-content {
+	padding-left: 50px;
+	padding-right: 50px;
+  padding-top: 15px;
+}
+
+.md-card-actions {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+//!Global
 </style>
