@@ -2,8 +2,8 @@
   <div>
     <md-empty-state></md-empty-state>
     <form novalidate class="md-layout md-alignment-top-center " @submit.prevent="validateUser">
-      <md-card class="md-layout-item md-size-50 md-small-size-100">
-        <md-card-header>
+      <md-card class="md-layout-item md-size-30 md-small-size-100">
+        <md-card-header class="md-layout md-alignment-center">
           <div class="md-title">Redefinir senha</div>
         </md-card-header>
 
@@ -21,7 +21,7 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button to="./novasenha">REDEFIR SENHA</md-button>
+          <md-button class="md-dense md-raised md-primary" to="./novasenha">REDEFIR SENHA</md-button>
         </md-card-actions>
       </md-card>
 
@@ -106,4 +106,30 @@
     right: 0;
     left: 0;
   }
+
+  //Global
+  .md-card-header {
+  	background: #2687e9;
+  	color: #fff;
+  }
+
+  .md-button.md-dense {
+  	width: 100%;
+  }
+
+  .md-card-content {
+  	padding-left: 50px;
+  	padding-right: 50px;
+    padding-top: 15px;
+  }
+
+  .md-card-actions {
+  	padding-left: 50px;
+  	padding-right: 50px;
+  }
+  //!Global
+  .md-card-actions {
+    padding-bottom: 15px;
+  }
+
 </style>

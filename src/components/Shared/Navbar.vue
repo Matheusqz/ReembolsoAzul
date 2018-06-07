@@ -8,8 +8,8 @@
   </md-toolbar>
 
   <md-drawer :md-active.sync="showNavigation">
-    <md-toolbar class="md-transparent" md-elevation="0">
-        <span class="md-title">Reembolso ContaAzul</span>
+    <md-toolbar md-elevation="0">
+        <span class="md-title whitetitle">Reembolso ContaAzul</span>
     </md-toolbar>
 
     <md-list @click="showNavigation=false">
@@ -48,5 +48,13 @@
 
   .md-content {
     padding: 16px;
+  }
+
+  .md-toolbar {
+    background: #2687e9;
+  }
+
+  .whitetitle {
+    color: #fff;
   }
 </style>
